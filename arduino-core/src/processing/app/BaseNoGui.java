@@ -65,6 +65,7 @@ public class BaseNoGui {
   // these are static because they're used by Sketch
   static private File examplesFolder;
   static private File toolsFolder;
+  static private File simulationFolder;
 
   // maps #included files to their library folder
   public static Map<String, LibraryList> importToLibraryTable;
@@ -394,6 +395,14 @@ public class BaseNoGui {
 
   static public String getToolsPath() {
     return toolsFolder.getAbsolutePath();
+  }
+
+  static public File getSimulationFolder() {
+    return simulationFolder;
+  }
+
+  static public String getSimulationPath() {
+    return simulationFolder.getAbsolutePath();
   }
 
   static public LibraryList getUserLibs() {
@@ -780,6 +789,7 @@ public class BaseNoGui {
   static public void onBoardOrPortChange() {
     examplesFolder = getContentFile("examples");
     toolsFolder = getContentFile("tools");
+    simulationFolder = getContentFile("simulation");
     librariesFolders = new ArrayList<File>();
 
     // Add IDE libraries folder

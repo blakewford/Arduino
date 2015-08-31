@@ -1963,6 +1963,24 @@ public class Editor extends JFrame implements RunnerListener {
     new Thread(verbose ? verboseHandler : nonVerboseHandler).start();
   }
 
+  public void handleLaunch() {
+    toolbar.activateLaunch();
+    status.progress(tr("Launching Simulator..."));
+    new Thread(){
+      public void run()
+      {
+        try{
+          new ProcessBuilder("/bin/sh", "-c", BaseNoGui.getSimulationFolder()+"/arduboy ~/Dropbox/BlobAttack_AB_10.cpp.hex").start();
+          Thread.sleep(1000);
+          toolbar.deactivateLaunch();
+        }catch(Exception e)
+        {
+          System.out.println(e.toString());
+        }
+      }
+    }.start();
+  }
+
   class BuildHandler implements Runnable {
 
     private final boolean verbose;
