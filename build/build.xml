@@ -139,6 +139,7 @@
     <copy file="shared/icons/48x48/apps/arduino.png" tofile="${target.path}/lib/arduino_small.png"/>
 
     <antcall target="assemble-hardware" />
+    <antcall target="assemble-simulation" />
 
     <copy file="../hardware/platform.keys.rewrite.txt" todir="${staging_folder}/work/${staging_hardware_folder}"/>
 
@@ -208,6 +209,16 @@
         <exclude name="arduino/sam/**"/>
       </fileset>
     </copy>
+  </target>
+
+  <!-- copy simulation folder -->
+  <target name="assemble-simulation" unless="light_bundle">
+    <copy todir="${target.path}/simulation">
+      <fileset dir="../simulation"/>
+    </copy>
+    <chmod perm="+x">
+      <fileset dir="${target.path}/simulation" includes="arduboy"/>
+    </chmod>
   </target>
 
   <!-- - - - - - - - - -->

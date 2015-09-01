@@ -33,7 +33,7 @@ console.output.color = #eeeeee
 console.error.color = #E34C00
 
 # GUI - BUTTONS
-buttons.bgcolor = #006468
+buttons.bgcolor = #660033
 buttons.status.font = SansSerif,plain,12
 buttons.status.color = #ffffff
 
