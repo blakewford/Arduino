@@ -88,6 +88,7 @@ public class Editor extends JFrame implements RunnerListener {
   private final Platform platform;
   private JMenu recentSketchesMenu;
   private JMenu programmersMenu;
+  private String compiledSketch = null;
 
   private static class ShouldSaveIfModified implements Predicate<Sketch> {
 
@@ -1964,13 +1965,14 @@ public class Editor extends JFrame implements RunnerListener {
   }
 
   public void handleLaunch() {
+    if(compiledSketch == null) return;
     toolbar.activateLaunch();
     status.progress(tr("Launching Simulator..."));
     new Thread(){
       public void run()
       {
         try{
-          new ProcessBuilder("/bin/sh", "-c", BaseNoGui.getSimulationFolder()+"/arduboy ~/Dropbox/BlobAttack_AB_10.cpp.hex").start();
+          new ProcessBuilder("/bin/sh", "-c", BaseNoGui.getSimulationFolder()+"/arduboy "+BaseNoGui.getBuildFolder()+"/sketch/"+compiledSketch+".hex").start();
           Thread.sleep(1000);
           toolbar.deactivateLaunch();
         }catch(Exception e)
@@ -2004,7 +2006,7 @@ public class Editor extends JFrame implements RunnerListener {
       try {
         textarea.removeAllLineHighlights();
         sketch.prepare();
-        sketch.build(verbose, saveHex);
+        compiledSketch = sketch.build(verbose, saveHex);
         statusNotice(tr("Done compiling."));
       } catch (PreferencesMapException e) {
         statusError(I18n.format(
