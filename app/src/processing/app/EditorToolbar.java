@@ -144,7 +144,7 @@ public class EditorToolbar extends JComponent implements MouseInputListener, Key
     Image allButtons = Base.getThemeImage("buttons.gif", this);
     buttonImages = new Image[BUTTON_COUNT][3];
 
-    for (int i = 0; i < BUTTON_COUNT-1; i++) {
+    for (int i = 0; i < BUTTON_COUNT; i++) {
       for (int state = 0; state < 3; state++) {
         Image image = createImage(BUTTON_WIDTH, BUTTON_HEIGHT);
         Graphics g = image.getGraphics();
@@ -153,14 +153,6 @@ public class EditorToolbar extends JComponent implements MouseInputListener, Key
           (-2 + state) * BUTTON_IMAGE_SIZE, null);
         buttonImages[i][state] = image;
       }
-    }
-    for (int state = 0; state < 3; state++) {
-      Image image = createImage(BUTTON_WIDTH, BUTTON_HEIGHT);
-      Graphics g = image.getGraphics();
-      g.drawImage(allButtons,
-        -((BUTTON_COUNT-2) * BUTTON_IMAGE_SIZE) - 3,
-        (-2 + state) * BUTTON_IMAGE_SIZE, null);
-      buttonImages[BUTTON_COUNT-1][state] = image;
     }
   }
 
