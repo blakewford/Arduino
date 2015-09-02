@@ -9,8 +9,8 @@
 
 
 # GUI - STATUS
-status.notice.fgcolor = #002325
-status.notice.bgcolor = #17A1A5
+status.notice.fgcolor = #FFFFFF
+status.notice.bgcolor = #660033
 status.error.fgcolor = #FFFFFF
 status.error.bgcolor = #E34C00
 status.edit.fgcolor = #000000
@@ -39,7 +39,7 @@ buttons.status.color = #ffffff
 
 # GUI - LINESTATUS   
 linestatus.color = #ffffff
-linestatus.bgcolor = #006468
+linestatus.bgcolor = #660033
 
 # EDITOR - DETAILS
 
