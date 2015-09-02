@@ -1286,48 +1286,6 @@ public class Editor extends JFrame implements RunnerListener {
 
     menu.addSeparator();
 
-    item = new JMenuItem(tr("Galileo Help"));
-    item.setEnabled(false);
-    menu.add(item);
-
-    item = new JMenuItem(tr("Getting Started"));
-    item.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent e) {
-        Base.showReference("reference/Galileo_help_files", "ArduinoIDE_guide_galileo");
-      }
-    });
-    menu.add(item);
-    item = new JMenuItem(tr("Troubleshooting"));
-    item.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent e) {
-        Base.showReference("reference/Galileo_help_files", "Guide_Troubleshooting_Galileo");
-      }
-    });
-    menu.add(item);
-
-    menu.addSeparator();
-
-    item = new JMenuItem(tr("Edison Help"));
-    item.setEnabled(false);
-    menu.add(item);
-
-    item = new JMenuItem(tr("Getting Started"));
-    item.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent e) {
-        Base.showReference("reference/Edison_help_files", "ArduinoIDE_guide_edison");
-      }
-    });
-    menu.add(item);
-    item = new JMenuItem(tr("Troubleshooting"));
-    item.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent e) {
-        Base.showReference("reference/Edison_help_files", "Guide_Troubleshooting_Edison");
-      }
-    });
-    menu.add(item);
-
-    menu.addSeparator();
-
     item = newJMenuItemShift(tr("Find in Reference"), 'F');
     item.addActionListener(this::handleFindReference);
     menu.add(item);
@@ -1340,10 +1298,10 @@ public class Editor extends JFrame implements RunnerListener {
       });
     menu.add(item);
 
-    item = new JMenuItem(tr("Visit Arduino.cc"));
+    item = new JMenuItem(tr("Visit arduboy.com"));
     item.addActionListener(new ActionListener() {
         public void actionPerformed(ActionEvent e) {
-          Base.openURL(tr("http://www.arduino.cc/"));
+          Base.openURL(tr("http://www.arduboy.com/"));
         }
       });
     menu.add(item);
